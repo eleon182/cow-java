@@ -16,7 +16,6 @@ repositories {
     mavenCentral()
 }
 dependencies {
-    compile ('org.jgrapht:jgrapht-core:0.9.0')
     compile ('com.amazonaws:aws-java-sdk:1.10.11')
     compile ("org.springframework.boot:spring-boot-starter-web")
     compile ("org.springframework.boot:spring-boot-gradle-plugin:1.2.5.RELEASE")
@@ -25,15 +24,11 @@ dependencies {
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-
 jar {
-    baseName = 'project-cow'
-    version =  '0.0.1'
+    baseName = 'dow-rest-service'
+    version =  '0.1.0'
 }
 
 task wrapper(type: Wrapper) {
     gradleVersion = '2.3'
 }
-
-mainClassName = 'us.leon.Main'
-
