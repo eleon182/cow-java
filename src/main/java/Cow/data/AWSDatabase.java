@@ -14,7 +14,6 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 public class AWSDatabase {
     private DynamoDBMapper mapper;
 
-
     public AWSDatabase() {
         AWSCredentials credentials = new ProfilesConfigFile().getCredentials("steve");
         AmazonDynamoDB aws = new AmazonDynamoDBClient(credentials);
@@ -22,7 +21,7 @@ public class AWSDatabase {
         mapper = new DynamoDBMapper(aws);
     }
 
-    public DynamoDBMapper getMapper(){
+    DynamoDBMapper getMapper(){
         return mapper;
     }
 }

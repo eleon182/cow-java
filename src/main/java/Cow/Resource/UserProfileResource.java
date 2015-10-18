@@ -1,5 +1,6 @@
 package cow.resource;
 
+import cow.app.UserProfile;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -13,9 +14,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserProfileResource extends MainResource {
 
-    @RequestMapping("/getdetails")
-    ResponseEntity<?> getDetails(@RequestHeader(value="x-customerid") String customerid) {
-        return new ResponseEntity<>(null, HttpStatus.OK);
+    UserProfile userProfile;
+
+    public UserProfileResource() {
+        userProfile = new UserProfile();
     }
 
+    @RequestMapping("/getdetails")
+    ResponseEntity<?> getDetails(@RequestHeader(value="x-customerid") String customerid) {
+        String t = customerid;
+        return new ResponseEntity<>(userProfile.getUserProfile(customerid), HttpStatus.OK);
+    }
 }
